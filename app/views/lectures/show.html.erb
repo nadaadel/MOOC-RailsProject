@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @lecture.name %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= raw(@lecture.content) %>
+</p>
+
+<p>
+  <strong>Attachment:</strong>
+  <%=  File.basename(@lecture.attachment.path) %>
+  <%= link_to 'Download' , @lecture.attachment_url%>
+</p>
+
+<p>
+  <strong>Course:</strong>
+  <%= @lecture.course.title %>
+</p>
+
+<%= link_to 'Edit', edit_lecture_path(@lecture) %> |
+<%= link_to 'Back', lectures_path %>
+
+<% if @lecture.users.include? current_user%>
+<p style="color:red">  This Lecture Spamed by You </p>
+<% else %>
+<%= button_to 'spam', spam_lecture_path(@lecture), method: :post %>
+<% end %>
+
+   <%= link_to like_lecture_path(@lecture) , method: :put do %>
+        Like
+        <%= @lecture.get_upvotes.size %>
+        <% end %>
+        <%= link_to dislike_lecture_path(@lecture) , method: :put do %>
+        disLike
+        <%= @lecture.get_downvotes.size %>
+        <% end %>
+<%= commontator_thread(@lecture)%>
