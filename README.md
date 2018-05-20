@@ -1,24 +1,9 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Mooc Project is a website serve User who Can Create a new Course and Course has many Lectures .
+#To Run Project 
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+1- clone the repository or Download Project 
+2- create my sql database schema with name "mooc"
+3- from project location run $ rake db:migrate
+4- open terminal and run $ rails s
